@@ -12,17 +12,23 @@ public class Staff implements Parcelable {
     int url;
     String name;
     int index;
+    String sex;
+    String dep;
 
-    public Staff(String name, int url, int index) {
+    public Staff(String name, int url, int index, String sex, String dep) {
         this.url = url;
         this.name = name;
         this.index = index;
+        this.sex = sex;
+        this.dep = dep;
     }
 
     protected Staff(Parcel in) {
         url = in.readInt();
         name = in.readString();
         index = in.readInt();
+        sex = in.readString();
+        dep = in.readString();
     }
 
     public static final Creator<Staff> CREATOR = new Creator<Staff>() {
@@ -47,6 +53,8 @@ public class Staff implements Parcelable {
         dest.writeInt(url);
         dest.writeString(name);
         dest.writeInt(index);
+        dest.writeString(sex);
+        dest.writeString(dep);
     }
 
     public int getUrl() {
@@ -71,5 +79,21 @@ public class Staff implements Parcelable {
 
     public void setIndex(int index) {
         this.index = index;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDep() {
+        return dep;
+    }
+
+    public void setDep(String dep) {
+        this.dep = dep;
     }
 }

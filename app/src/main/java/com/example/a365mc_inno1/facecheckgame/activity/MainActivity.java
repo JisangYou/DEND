@@ -1,5 +1,6 @@
 package com.example.a365mc_inno1.facecheckgame.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     Bundle bundle;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Add items <<< created items (R.string.TITLE, R.drawable.ICON_IMG, R.color.NAVIGATION_BAR_BACKGROUND_COLOR)
-        bottomNavigation.addItem(new AHBottomNavigationItem("test1", R.drawable.ic_launcher_foreground, R.color.colorPrimary));
+        bottomNavigation.addItem(new AHBottomNavigationItem("find face", R.drawable.ic_launcher_foreground, R.color.colorPrimary));
         bottomNavigation.addItem(new AHBottomNavigationItem("test2", R.drawable.ic_launcher_foreground, R.color.colorAccent));
-        bottomNavigation.addItem(new AHBottomNavigationItem("test3", R.drawable.ic_launcher_foreground, R.color.colorBottomNavigationInactive));
+        bottomNavigation.addItem(new AHBottomNavigationItem("mine game", R.drawable.ic_launcher_foreground, R.color.colorBottomNavigationInactive));
 
 //        // Set Navigation Icon & Background Colors
         bottomNavigation.setColoredModeColors(getResources().getColor(R.color.colorPrimary), getResources().getColor(R.color.colorBottomNavigationInactive));
@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                         } else
                             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fra_test3).commit();
 
+
                         return true;
 
                 }
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFragment() {
+
         bundle = new Bundle();
         bundle.putParcelableArrayList(Constant.DYMMY_DATA, (ArrayList<? extends Parcelable>) staffList);
         fra_test1 = new test1();
@@ -126,18 +128,14 @@ public class MainActivity extends AppCompatActivity {
     private void initDummyDB() {
 
         staffList = new ArrayList<>();
-        staffList.add(new Staff("둘리", R.drawable.dooli, 0));
-        staffList.add(new Staff("도우너", R.drawable.dounet, 1));
-        staffList.add(new Staff("마이클", R.drawable.michel, 2));
-        staffList.add(new Staff("꼴뚜기", R.drawable.ggolddugi, 3));
-        staffList.add(new Staff("고길동", R.drawable.gogildong, 4));
-        staffList.add(new Staff("희동이", R.drawable.heedong, 5));
+        staffList.add(new Staff("둘리", R.drawable.dooli, 0, "남","innovation"));
+        staffList.add(new Staff("도우너", R.drawable.dounet, 1, "여","marketing"));
+        staffList.add(new Staff("마이클", R.drawable.michel, 2, "남","finance"));
+        staffList.add(new Staff("꼴뚜기", R.drawable.ggolddugi, 3, "여","marketing"));
+        staffList.add(new Staff("고길동", R.drawable.gogildong, 4, "남","innovation"));
+        staffList.add(new Staff("희동이", R.drawable.heedong, 5, "여","executive"));
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-    }
 }

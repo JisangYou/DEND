@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.StaffDetail"></activity>
+        <activity android:name=".activity.StaffPieChart" />
+        <activity android:name=".activity.StaffBarChart"></activity>
     </application>
 
 </manifest>

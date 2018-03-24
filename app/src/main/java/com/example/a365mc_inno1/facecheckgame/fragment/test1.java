@@ -41,7 +41,7 @@ public class test1 extends Fragment {
     View view;
     Bundle bundle;
     List<Staff> staffList, tempList;
-    EditText editName;
+    TextView editName;
     int current = -1;
     int count;
     TextView textCountDown;
@@ -67,7 +67,9 @@ public class test1 extends Fragment {
 
         initRandom();
         initView();
+
         initViewpager();
+
         timer();
 
         return view;
@@ -93,6 +95,7 @@ public class test1 extends Fragment {
         viewPager.setCurrentItem(current);
         Log.e("current", "check current setCurrentItem == " + current);
         initSetButton(current);
+        btnClick();
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -104,6 +107,7 @@ public class test1 extends Fragment {
                 current = position;
                 Log.e("current", "check current onPageSelected == " + current);
                 initSetButton(current);
+                btnClick();
 
             }
 
@@ -197,6 +201,57 @@ public class test1 extends Fragment {
             tempList.add(staffList.get(randomeIdx[i]));
         }
 
+    }
+
+    String text1, text2, text3, text4;
+
+    private void btnClick() {
+        text1 = btn1.getText().toString();
+        text2 = btn2.getText().toString();
+        text3 = btn3.getText().toString();
+        text4 = btn4.getText().toString();
+
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (text1.equals(tempList.get(current).getName())) {
+
+                    Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (text2.equals(tempList.get(current).getName())) {
+
+                    Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (text3.equals(tempList.get(current).getName())) {
+
+                    Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (text4.equals(tempList.get(current).getName())) {
+
+                    Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

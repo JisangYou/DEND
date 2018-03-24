@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -44,6 +45,8 @@ public class test2Adapter extends RecyclerView.Adapter<test2Adapter.Holder> {
 
         Staff staff = data.get(position);
         holder.editName.setText(staff.getName());
+        holder.editDep.setText(staff.getDep());
+        holder.editSex.setText(staff.getSex());
         Glide.with(context).load(staff.getUrl()).apply(RequestOptions.centerCropTransform()).into(holder.imgStaff);
 
     }
@@ -56,8 +59,9 @@ public class test2Adapter extends RecyclerView.Adapter<test2Adapter.Holder> {
     public class Holder extends RecyclerView.ViewHolder {
 
         ImageView imgStaff;
-        EditText editName;
-        EditText editDep;
+        TextView editName;
+        TextView editDep;
+        TextView editSex;
 
 
         public Holder(View itemView) {
@@ -65,6 +69,7 @@ public class test2Adapter extends RecyclerView.Adapter<test2Adapter.Holder> {
             imgStaff = itemView.findViewById(R.id.img_staff);
             editName = itemView.findViewById(R.id.edit_name);
             editDep = itemView.findViewById(R.id.edit_dep);
+            editSex = itemView.findViewById(R.id.edit_sex);
         }
     }
 }
