@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -32,7 +33,7 @@ public class test3 extends Fragment implements Button.OnClickListener {
     View view;
     EditText edit_prop;
     int num;
-    int count = 0;
+    double count = 0;
 
     public test3() {
         // Required empty public constructor
@@ -300,221 +301,14 @@ public class test3 extends Fragment implements Button.OnClickListener {
     }
 
     private void toastSetting() {
-        Toast.makeText(getContext(), "당첨입니다!!!!", Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_pause, null, false);
+        builder.setView(view).show();
     }
 
     @SuppressLint("SetTextI18n")
     private void setEdit() {
         count++;
-        edit_prop.setText((count * 5) + " % ");
+        edit_prop.setText(100 * (1 / (20 - count)) + " % ");
     }
 }
-
-
-// getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);// Inflate the layout for this fragment
-//        ViewGroup.LayoutParams lp;
-//lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-//
-//        RelativeLayout gameView = new RelativeLayout(getContext());
-//        gameView.setLayoutParams(lp);
-//        getActivity().setContentView(gameView);
-//        LinearLayout cv = new LinearLayout(getContext());
-//        cv.setLayoutParams(lp);
-//        cv.setOrientation(LinearLayout.VERTICAL);
-//        cv.setBackgroundColor(Color.rgb(255, 255, 255));
-//        gameView.addView(cv);
-//
-//
-//        lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//
-//        TextView tvLabel = new TextView(getContext());
-//
-//        tvLabel.setLayoutParams(lp);
-//
-//        tvLabel.setBackgroundColor(Color.BLACK);
-//
-//        tvLabel.setTextColor(Color.WHITE);
-//
-//        tvLabel.setTextSize(18f);
-//
-//        tvLabel.setGravity(Gravity.CENTER);
-//
-//        tvLabel.setText("지뢰를 발견한 사람이 커피를 사는 게임입니다.");
-//
-//        cv.addView(tvLabel);
-//
-//
-//        tvLabel = new TextView(getContext());
-//
-//        tvLabel.setLayoutParams(lp);
-//
-//        tvLabel.setBackgroundColor(Color.BLACK);
-//
-//        tvLabel.setTextColor(Color.RED);
-//
-//        tvLabel.setHeight(100);
-//
-//        tvLabel.setTextSize(18f);
-//
-//        tvLabel.setGravity(Gravity.CENTER);
-//
-//        tvLabel.setText("빨간색을 누른 사람이 커피를 삽니다!!!");
-//
-//        cv.addView(tvLabel);
-//
-//
-//        startBtn = new Button(getContext());
-//
-//        startBtn.setLayoutParams(lp);
-//
-//        startBtn.setTextSize(32f);
-//
-//        startBtn.setText("START GAME");
-//
-//        startBtn.setOnClickListener(BtnClick);
-//
-//        cv.addView(startBtn);
-//
-//
-//        gv = new RelativeLayout(getContext());
-//
-//        lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
-//
-//        gv.setLayoutParams(lp);
-//
-//        cv.addView(gv);
-//
-//
-//        int btnId = 0;
-//
-//        int nb = 4;
-//
-//        for (int ny = 0; ny < nb; ny++) {
-//
-//            for (int nx = 0; nx < nb; nx++) {
-//
-//                gv.addView(CreateButton(ny, nx, String.valueOf(btnId++)));
-//
-//            }
-//        }
-//        return view;
-//    }
-//
-//    private RelativeLayout gv;
-//
-//    private Button CreateButton(int ny, int nx, String label) {
-//
-//        int sw = getActivity().getWindow().getWindowManager().getDefaultDisplay().getWidth();
-//
-//        int nb = 4;
-//
-//        int BtnWidth = sw / nb;
-//
-//
-//        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(BtnWidth - 4, BtnWidth - 4);
-//
-//        lp.topMargin = 2 + ny * BtnWidth;
-//
-//        lp.leftMargin = 2 + nx * BtnWidth;
-//
-//        Button btn = new Button(getContext());
-//
-//        btn.setLayoutParams(lp);
-//
-//        btn.setTextColor(Color.WHITE);
-//
-//        btn.setBackgroundColor(Color.WHITE);
-//
-//        btn.setTextSize(52);
-//
-//        btn.setText(label);
-//
-//        btn.setOnClickListener(BtnClick);
-//
-//        btn.setEnabled(false);
-//
-//        return btn;
-//
-//    }
-//
-//    private int bombCount = 0;
-//
-//    private View.OnClickListener BtnClick = new View.OnClickListener() {
-//
-//        @Override
-//
-//        public void onClick(View v) {
-//
-//            if (v == startBtn) {
-//
-//                shuffleArray();
-//
-//                ResetButtons();
-//
-//                bombCount = 0;
-//
-//                startBtn.setVisibility(View.GONE);
-//
-//            } else {
-//
-//                int btnId = Integer.valueOf(((Button) v).getText().toString());
-//
-//                int btnColor;
-//
-//                if (bombData[btnId] == 1) {
-//
-//                    btnColor = Color.RED;
-//
-//                    if (++bombCount == 4) startBtn.setVisibility(View.VISIBLE);
-//
-//                } else {
-//
-//                    btnColor = Color.WHITE;
-//
-//                }
-//
-//                ((Button) v).setBackgroundColor(btnColor);
-//
-//                ((Button) v).setEnabled(false);
-//
-//            }
-//
-//        }
-//
-//    };
-//
-//    private void ResetButtons() {
-//
-//        for (int i = gv.getChildCount() - 1; i > -1; --i) {
-//
-//            Button btn = (Button) gv.getChildAt(i);
-//
-//            btn.setBackgroundColor(Color.BLUE);
-//
-//            btn.setEnabled(true);
-//
-//        }
-//
-//    }
-//
-//    private int[] bombData = {1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0};
-//
-//    private void shuffleArray() {
-//
-//        Random rnd = new Random();
-//
-//        for (int i = gv.getChildCount() - 1; i > 0; i--) {
-//
-//            int index = rnd.nextInt(i + 1);
-//
-//            int first = bombData[index];
-//
-//            int tmp = bombData[i];
-//
-//            bombData[index] = tmp;
-//
-//            bombData[i] = first;
-//
-//        }
-//
-//    }

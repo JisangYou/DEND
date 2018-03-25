@@ -7,4 +7,5 @@ package com.example.a365mc_inno1.facecheckgame.util;
 public class Constant {
 
     public static final String DYMMY_DATA = "DUMMY";
+    public static final int ACTION_SET = 999;
 }

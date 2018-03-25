@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,10 +27,12 @@ import com.example.a365mc_inno1.facecheckgame.R;
 import com.example.a365mc_inno1.facecheckgame.adapter.ViewPagerAdapter;
 import com.example.a365mc_inno1.facecheckgame.model.Staff;
 import com.example.a365mc_inno1.facecheckgame.util.Constant;
+import com.example.a365mc_inno1.facecheckgame.util.DialogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.TimerTask;
 
 
 /**
@@ -43,11 +46,14 @@ public class test1 extends Fragment {
     List<Staff> staffList, tempList;
     TextView editName;
     int current = -1;
-    int count;
+    int count = 10;
     TextView textCountDown;
     int[] randomeIdx;
-    Button btn1, btn2, btn3, btn4;
-    CountDownTimer countDown = null;
+    Button btn1, btn2, btn3, btn4, btn_point, btn_pause;
+    SeekBar seekbar_progress;
+    countTimer countTimer;
+    int checked = 0;
+    int point = 0;
 
 
     public test1() {
@@ -64,13 +70,12 @@ public class test1 extends Fragment {
         bundle = getArguments();
         staffList = bundle.getParcelableArrayList(Constant.DYMMY_DATA);
         tempList = new ArrayList<>();
-
+        timer();
         initRandom();
         initView();
-
+        callDialog();
         initViewpager();
 
-        timer();
 
         return view;
     }
@@ -83,7 +88,12 @@ public class test1 extends Fragment {
         btn2 = view.findViewById(R.id.btn2);
         btn3 = view.findViewById(R.id.btn3);
         btn4 = view.findViewById(R.id.btn4);
+        btn_pause = view.findViewById(R.id.btn_pause);
+        btn_point = view.findViewById(R.id.btn_point);
+        seekbar_progress = view.findViewById(R.id.seekBar_progress);
+        seekbar_progress.setMax(staffList.size() - 1);
         initChangeList();
+
 
     }
 
@@ -91,11 +101,14 @@ public class test1 extends Fragment {
 
         viewPagerAdapter = new ViewPagerAdapter(getContext(), tempList);
         viewPager.setAdapter(viewPagerAdapter);
+
         current = 0;
         viewPager.setCurrentItem(current);
+
         Log.e("current", "check current setCurrentItem == " + current);
         initSetButton(current);
         btnClick();
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -105,9 +118,13 @@ public class test1 extends Fragment {
             @Override
             public void onPageSelected(int position) {
                 current = position;
-                Log.e("current", "check current onPageSelected == " + current);
+                checked = 0;
                 initSetButton(current);
                 btnClick();
+                countTimer.setStop();
+                count = 10;
+                timer();
+                seekbar_progress.setProgress(position);
 
             }
 
@@ -119,23 +136,33 @@ public class test1 extends Fragment {
     }
 
 
+    @SuppressLint("HandlerLeak")
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+//            super.handleMessage(msg);
+
+            switch (msg.what) {
+                case Constant.ACTION_SET:
+
+                    if (count > 0) {
+                        textCountDown.setText(String.valueOf(count));
+                        count--;
+                    } else {
+                        textCountDown.setText("the end");
+                        viewPager.setCurrentItem(current + 1);
+                    }
+                    break;
+            }
+        }
+    };
+
+
     private void timer() {
 
-        count = 60;
-        countDown = new CountDownTimer(10 * 6000, 1000) {
-            @Override
-            public void onTick(long mili) {
-                textCountDown.setText(String.valueOf(count));
-                count--;
-                Log.e("onTick", "시간이 흐른다!");
-            }
+        countTimer = new countTimer(handler);
+        countTimer.start();
 
-            @Override
-            public void onFinish() {
-                Log.e("onFinish", "시간이 멈춘다!");
-                textCountDown.setText(String.valueOf("the end!"));
-            }
-        }.start();
     }
 
 
@@ -161,6 +188,7 @@ public class test1 extends Fragment {
         Log.e("current", "check current initSetButton == " + current);
 
         if (current == 0) {
+
             btn1.setText(tempList.get(0).getName());
             btn2.setText(tempList.get(1).getName());
             btn3.setText(tempList.get(2).getName());
@@ -215,45 +243,156 @@ public class test1 extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (text1.equals(tempList.get(current).getName())) {
 
-                    Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+
+                if (checked == 0) {
+                    if (text1.equals(tempList.get(current).getName())) {
+                        Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                        point++;
+                    } else {
+                        Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+                    }
+                    checked = 1;
                 } else
-                    Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "기회는 한번!!!!", Toast.LENGTH_SHORT).show();
+
             }
+
         });
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (text2.equals(tempList.get(current).getName())) {
 
-                    Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                if (checked == 0) {
+                    if (text2.equals(tempList.get(current).getName())) {
+                        Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                        point++;
+                    } else {
+                        Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+                    }
+                    checked = 1;
                 } else
-                    Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "기회는 한번!!!!", Toast.LENGTH_SHORT).show();
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (text3.equals(tempList.get(current).getName())) {
 
-                    Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                if (checked == 0) {
+                    if (text3.equals(tempList.get(current).getName())) {
+                        Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                        point++;
+                    } else {
+                        Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+                    }
+                    checked = 1;
                 } else
-                    Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "기회는 한번!!!!", Toast.LENGTH_SHORT).show();
             }
         });
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (text4.equals(tempList.get(current).getName())) {
 
-                    Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                if (checked == 0) {
+                    if (text4.equals(tempList.get(current).getName())) {
+                        Toast.makeText(getContext(), "정답입니다!!!!", Toast.LENGTH_SHORT).show();
+                        point++;
+                    } else {
+                        Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+                    }
+                    checked = 1;
                 } else
-                    Toast.makeText(getContext(), "땡떙땡!!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "기회는 한번!!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    private void callDialog() {
+
+        btn_pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countTimer.setStop();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("게임을 재개하겠습니까?");
+                builder.setIcon(R.drawable.gogildong);
+                builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        timer();
+                        dialogInterface.cancel();
+
+                    }
+                });
+                builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        getActivity().onBackPressed();
+                    }
+                });
+                builder.show();
+            }
+        });
+
+        btn_point.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countTimer.setStop();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("전체 문제 = " + staffList.size());
+                builder.setIcon(R.drawable.dooli);
+                builder.setMessage("맞힌 갯수 = " + point);
+                builder.setIcon(R.drawable.dooli);
+                builder.setPositiveButton("돌아가기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        timer();
+                        dialogInterface.cancel();
+
+                    }
+                });
+
+                builder.show();
+
             }
         });
     }
 
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        countTimer.setStop();
+    }
 }
 
+class countTimer extends Thread {
+    Handler handler;
+    Boolean RUNNING = true;
+
+    public countTimer(Handler handler) {
+        this.handler = handler;
+    }
+
+    public void run() {
+        while (RUNNING) {
+            Message msg = new Message();
+            msg.what = Constant.ACTION_SET;
+            handler.sendMessage(msg);
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void setStop() {
+        RUNNING = false;
+    }
+
+
+}
