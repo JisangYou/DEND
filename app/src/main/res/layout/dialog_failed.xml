@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
@@ -8,8 +9,13 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/img_dooli"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/dooli" />
+
     <TextView
-        android:id="@+id/textview1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -17,18 +23,17 @@
         android:layout_marginRight="32dp"
         android:layout_marginTop="32dp"
         android:gravity="center_horizontal"
-        android:text="Congraturation!!"
+        android:text="틀렸습니다!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/text_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:gravity="center_horizontal"
-        android:hint="time"
+        android:text="click ▽"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black" />
 
@@ -43,7 +48,7 @@
         android:background="#c8d9d9d9" />
 
     <Button
-        android:id="@+id/btn_starbucks"
+        android:id="@+id/btn_failed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -51,7 +56,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/corner_rounded_button_google"
-        android:text="ranking 보러가기" />
+        android:text="처음부터" />
 
 
 </LinearLayout>

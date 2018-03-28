@@ -8,4 +8,11 @@ public class Constant {
 
     public static final String DYMMY_DATA = "DUMMY";
     public static final int ACTION_SET = 999;
+    public static final String INNO = "innovation";
+    public static final String MAR = "marketing";
+    public static final String FI = "finance";
+    public static final String EXE = "executive";
+    public static final String DIS = "design";
+    public static final String COM = "computation";
+
 }

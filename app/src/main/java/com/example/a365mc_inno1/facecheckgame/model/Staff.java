@@ -9,13 +9,17 @@ import android.os.Parcelable;
 
 public class Staff implements Parcelable {
 
-    int url;
+    String url;
     String name;
     int index;
     String sex;
     String dep;
 
-    public Staff(String name, int url, int index, String sex, String dep) {
+    public Staff() {
+    }
+
+
+    public Staff(String name, String url, int index, String sex, String dep) {
         this.url = url;
         this.name = name;
         this.index = index;
@@ -24,7 +28,7 @@ public class Staff implements Parcelable {
     }
 
     protected Staff(Parcel in) {
-        url = in.readInt();
+        url = in.readString();
         name = in.readString();
         index = in.readInt();
         sex = in.readString();
@@ -50,18 +54,18 @@ public class Staff implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(url);
+        dest.writeString(url);
         dest.writeString(name);
         dest.writeInt(index);
         dest.writeString(sex);
         dest.writeString(dep);
     }
 
-    public int getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(int url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
