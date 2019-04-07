@@ -31,3 +31,21 @@
 - 카산드라
     -  A keyspace is a collection of tables
 
+- relational Databases Modeling
+    - Standardization of data model
+    - Flexibility in adding and altering tables
+    - Data Integrity
+    - Standard Query Language (SQL)
+    - Simplicity 
+    - Intuitive Organization
+
+
+- 정규화 : 데이터 중복성을 줄이고 데이터 무결성을 향상시킵니다.
+
+- Objectives of Normal Form:
+```
+To free the database from unwanted insertions, updates, & deletion dependencies
+To reduce the need for refactoring the database as new types of data are introduced
+To make the relational model more informative to users
+To make the database neutral to the query statistics
+```
