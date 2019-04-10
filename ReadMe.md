@@ -55,6 +55,7 @@ To make the database neutral to the query statistics
 
  -  Normalization  데이터의 사본 수를 줄임으로써 데이터 무결성을 높이려는 것입니다. 추가하거나 업데이트해야하는 데이터는 가능한 한 적은 곳에서 처리됩니다.
 
+
 - Denormalization 는 조인이 느려질 수 있으므로 테이블 간의 조인 수를 줄여 성능을 향상 시키려고합니다. JOINS를 줄이기 위해 데이터의 사본이 더 많아지기 때문에 데이터 무결성이 잠재적 인 영향을 미칩니다.
 
 - 스타 스키마는 데이터 웨어하우스 스키마 중 가장 단순한 종류의 스키마인데, 한 개의 사실 테이블과 주 키 및 각 차원과 추가적인 사실들로 이루어진 스키마이다. 스타 스키마라는 이름은 스키마 다이어그램이 마치 "별표(star)" 모양이라 해서 붙인 이름이다
@@ -67,3 +68,26 @@ To make the database neutral to the query statistics
 
 - upsert
 In RDBMS language, the term upsert refers to the idea of inserting a new row in an existing table, or updating the row if it already exists in the table. The action of updating or inserting has been described as "upsert"
+
+
+- when not to use SQL
+
+데이터에서 고 가용성 필요 : 시스템이 항상 가동 중이며 가동 중지 시간이 없음을 나타냅니다.
+많은 양의 데이터 보유
+선형 확장 성 필요 : 시스템에 노드를 추가해야 성능이 선형 적으로 증가합니다.
+낮은 대기 시간 : 전송 지시가 수신되면 데이터가 전송되기 전에 짧은 지연.
+빠른 읽기 쓰기 필요
+
+- CAP Theorem
+
+Consistency: Every read from the database gets the latest (and correct) piece of data or an error
+
+Availability: Every request is received and a response is given -- without a guarantee that the data is the latest update
+
+Partition Tolerance: The system continues to work regardless of losing network connectivity between nodes
+
+- 아파치 카산드라
+조인이 없기에, 비정규화를 제대로 시켜놓고 개발자가 미리 숙지해야함.
+
+- CQL
+no JOIN no GROUP BY and there's not any subqueries
