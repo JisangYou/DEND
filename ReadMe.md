@@ -112,3 +112,38 @@ primary key의 1번째 key외 나머지 key를 clustering key(또는 clustering 
 순서 관련해서 오름차순, 내림차순으로 변경할 수 있다. 
 
 [출처](https://knight76.tistory.com/entry/cassandra-키의-종류-primary-key-partition-key-clustering-key-compositecompound-key-composite-partition-key)
+
+
+
+- project
+
+    - 스타스키마의 간단한 소개차원 테이블은 중앙의 사실 테이블과 직접적인 관계를 가진다.
+    모든 차원 테이블의 속성들이 사실 테이블에 속한 속성들을 분석하기 위하여 하나의 질의에 참여하는 균등한 기회를 갖도록 한다.
+    차원 모델의 배치가 별모양
+
+    - 차원 테이블 
+    차원 테이블 키(dimension table key). 차원 테이블의 기본키는 테이블에서 각 행을 유일하게 식별
+    테이블은 넓다(table is wide). 많은 열을 가짐. 50개 이상의 열을 가지는 것은 특별한 것이 아님
+    텍스트로 된 속성(textual attributes). 수치값을 찾기 어려움. 속성들은 텍스트 형식
+    속성들은 직접 연관되지 않음(attirbues not directly related). 차원 테이블의 속성들과 그 테이블에 속성들과 직접 관련되어 있지 않음.
+    정규화 되어 있지 않다(not normalized). 
+    드릴다운, 롤업(drilldown, rollup).
+    다수 계층(multiple hierachies)
+    더 작은 개수들의 레코드(fewer number of records).
+
+    - 사실 테이블
+    합성된 키(concatenated key). 사실 테이블의 기본키는 모든 차원 테이블의 기본키(외부키)의 조합
+    데이터 구체화정도(data grain). 측정값(measure)의 상세함의 수준. 합성된 키의 수준.
+    완전 덧셈 측정치(fully additive measures). 
+    반 덧셈 측정치(semiadditive measures).
+    테이블은 깊고, 넓지 않다(table deep, not wide)
+    희박 데이터(sparse data)
+    퇴화 차원(degenerate dimensions). 주문번호와 같은 measure도 아닌 metric(측정규준, 지표, 실판매가, 딜러공제, 옵션가격 등..)도 아닌 속성
+
+
+    ## aws
+
+    - operational process vs analytical process
+
+    - 디멘션은 팩트 테이블에서 값을 한정해 보여주는 테이블이다. Fact 테이블이 Measures 를 포함하는데 비해서, Dimension은 Business를 기술하는 것으로 볼 수 있다.
+    - 출처: https://alnova2.tistory.com/1082 [몽상가]
