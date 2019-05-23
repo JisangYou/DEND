@@ -218,3 +218,7 @@ ROLAP이 관계형 데이터베이스를 사용하기 때문에, 다차원 데�
 
 출처: https://dbrang.tistory.com/416 [dBRang [dɪ'·bɪ·raŋ]]
     ```
+
+- AWS
+- Redshift, ec2, s3
+- 병렬 처리
