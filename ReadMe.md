@@ -248,7 +248,7 @@ RedShift
 - 병렬 처리
 
 
--IAM
+- IAM
 
 AWS Identity and Access Management(IAM)는 AWS 리소스에 대한 액세스를 안전하게 제어할 수 있는 웹 서비스입니다. IAM을 사용하여 리소스를 사용하도록 인증(로그인) 및 권한 부여(권한 있음)된 대상을 제어합니다.
 
@@ -276,4 +276,37 @@ ALL 분산
 
 ALL 분산은 필요한 스토리지를 클러스터 노드 수와 곱하기 때문에 데이터를 다수의 테이블에 로드하거나, 업데이트하거나, 삽입하는 데 더 많은 시간이 걸립니다. 따라서 비교적 느리게 이동하는 테이블, 즉 업데이트가 자주 또는 광범위하게 이루어지지 않는 테이블에 한해 적합합니다. 작은 차원 테이블은 재분산 비용이 낮기 때문에 ALL 분산의 이점이 크지 않습니다.
 
-참고
+- 
+병렬처리 시스템은 프로세서를 늘려서 여러 일을 동시에, 더 빨리 처리 할 수 있게 해주는 시스템 방식이고, 분산처리 시스템은 처리할 수 있는 장비(컴퓨터 등)을 네트워크로 상호 연결하여 전체적인 일의 부분 부분을 나누어 더 빨리 처리 할 수 있게 하는 시스템 방식이다. 이 둘은 단일에서 여럿으로, 일을 동시에 처리한다는 점이 유사하지만 전체적인 틀에서 보면 일을 처리하는 방식이 매우 다르다. 병렬처리는 “동시에 여러 일”을 처리하는 것이고, 분산처리는 “하나의 일을 동시에 여럿이서” 처리하는 것
+
+출처: https://croute.me/1 [식탁 위의 프로그래머]
+
+- distributed computing implies multiple CPUs each with its own memory. Parallel computing uses multiple CPUs sharing the same memory.
+
+-
+Hadoop Vocabulary
+Here is a list of some terms associated with Hadoop. You'll learn more about these terms and how they relate to Spark in the rest of the lesson.
+
+Hadoop - an ecosystem of tools for big data storage and data analysis. Hadoop is an older system than Spark but is still used by many companies. The major difference between Spark and Hadoop is how they use memory. Hadoop writes intermediate results to disk whereas Spark tries to keep data in memory whenever possible. This makes Spark faster for many use cases.
+
+Hadoop MapReduce - a system for processing and analyzing large data sets in parallel.
+
+Hadoop YARN - a resource manager that schedules jobs across a cluster. The manager keeps track of what computer resources are available and then assigns those resources to specific tasks.
+
+Hadoop Distributed File System (HDFS) - a big data storage system that splits data into chunks and stores the chunks across a cluster of computers.
+
+As Hadoop matured, other tools were developed to make Hadoop easier to work with. These tools included:
+
+Apache Pig - a SQL-like language that runs on top of Hadoop MapReduce
+Apache Hive - another SQL-like interface that runs on top of Hadoop MapReduce
+Oftentimes when someone is talking about Hadoop in general terms, they are actually talking about Hadoop MapReduce. However, Hadoop is more than just MapReduce. In the next part of the lesson, you'll learn more about how MapReduce works.
+
+How is Spark related to Hadoop?
+Spark, which is the main focus of this course, is another big data framework. Spark contains libraries for data analysis, machine learning, graph analysis, and streaming live data. Spark is generally faster than Hadoop. This is because Hadoop writes intermediate results to disk whereas Spark tries to keep intermediate results in memory whenever possible.
+
+The Hadoop ecosystem includes a distributed file storage system called HDFS (Hadoop Distributed File System). Spark, on the other hand, does not include a file storage system. You can use Spark on top of HDFS but you do not have to. Spark can read in data from other sources as well such as Amazon S3.
+
+Streaming Data
+Data streaming is a specialized topic in big data. The use case is when you want to store and analyze data in real-time such as Facebook posts or Twitter tweets.
+
+- chunk : 덩어리, 데이터 덩어리
