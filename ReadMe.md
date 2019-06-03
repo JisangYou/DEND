@@ -310,3 +310,6 @@ Streaming Data
 Data streaming is a specialized topic in big data. The use case is when you want to store and analyze data in real-time such as Facebook posts or Twitter tweets.
 
 - chunk : 덩어리, 데이터 덩어리
+
+- Spark splits up data onto multiple machines. If your songs list were split onto two machines, Machine A would first need to finish counting, and then return its own result to Machine B. And then Machine B could use the output from Machine A and add to the count.
+
