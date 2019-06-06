@@ -313,3 +313,19 @@ Data streaming is a specialized topic in big data. The use case is when you want
 
 - Spark splits up data onto multiple machines. If your songs list were split onto two machines, Machine A would first need to finish counting, and then return its own result to Machine B. And then Machine B could use the output from Machine A and add to the count.
 
+- imperative Programming vs Declarative Programming
+- how vs what
+
+
+- data lake란?
+데이터를 원형 그대로 저장하는 방식
+대량의 데이터를 원시 형식으로 보관하는 저장소
+
+- data warehouse
+"데이터(data) + 창고(warehouse)"
+회사의 각 사업부문에서 수집된 모든 자료 또는 주요 자료에 관한 중앙창고
+의사결정에 도움을 주기 위해, 다양한 운영 시스템에서 추출, 변환, 통합되고 요약된 데이터베이스
+기업의 대단위 데이터를 사용자 관점에서 주제별로 통합하여 축적하여 별도의 장소에 저장해 놓은 것
+기간 시스템의 데이터베이스에 축적된 데이터를 공통의 형식으로 변환하여 일원적으로 관리하는 데이터베이스
+의사결정에 도움을 주기 위해, 기간시스템의 데이터베이스에 축적된 데이터를 공통의 형식으로 변환해서 관리하는 데이터베이스
+가장 많이 사용하는 스키마: 스타 스키마
