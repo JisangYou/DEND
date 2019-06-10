@@ -329,3 +329,27 @@ Data streaming is a specialized topic in big data. The use case is when you want
 기간 시스템의 데이터베이스에 축적된 데이터를 공통의 형식으로 변환하여 일원적으로 관리하는 데이터베이스
 의사결정에 도움을 주기 위해, 기간시스템의 데이터베이스에 축적된 데이터를 공통의 형식으로 변환해서 관리하는 데이터베이스
 가장 많이 사용하는 스키마: 스타 스키마
+
+-
+Four key differences between a data lake and a data warehouse
+There are several differences between a data lake and a data warehouse. Data structure, ideal users, processing methods, and the overall purpose of the data are the key differentiators.
+
+ 	
+- Data Lake - Data Warehouse
+
+Data Structure
+
+Raw - Processed
+
+Purpose of Data
+
+Not Yet Determined - Currently In Use
+
+Users
+
+Data Scientists - usiness Professionals
+
+Accessibility
+
+Highly accessible and quick to update - More complicated and costly to make changes
+
