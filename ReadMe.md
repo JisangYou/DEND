@@ -353,4 +353,26 @@ Accessibility
 
 Highly accessible and quick to update - More complicated and costly to make changes
 
-- AWS
+- Amazon EMR은 비즈니스, 연구원, 데이터 분석가 및 개발자가 막대한 양의 데이터를 간편하게, 비용 효율적으로 처리할 수 있는 웹 서비스입니다.
+
+- 파이프 라인은 데이터가 처리되는 일련의 단계입니다. It's typically using either ETL or ELT
+
+- 카프카 
+
+아파치 카프카(Apache Kafka)는 아파치 소프트웨어 재단이 스칼라로 개발한 오픈 소스 메시지 브로커 프로젝트이다. 이 프로젝트는 실시간 데이터 피드를 관리하기 위해 통일된,높은 스루풋의 낮은 레이턴시를 지닌 플랫폼을 제공하는 것이 목표이다. 요컨대 분산 트랜잭션 로그로 구성된[1], 상당히 확장 가능한 pub/sub 메시지 큐로 정의할 수 있으며, 스트리밍 데이터를 처리하기 위한 기업 인프라를 위한 고부가 가치 기능이다.
+디자인은 트랜잭션 로그에 많은 영향을 받았다
+
+- redshift 
+Amazon Redshift는 데이터 웨어하우스와 데이터 레이크 전체에 걸쳐 간단하고 비용 효율적으로 모든 데이터를 분석할 수 있는 빠르고 확장 가능한 데이터 웨어하우스입니다. Redshift는 기계 학습, 대량 병렬 쿼리 실행, 고성능 디스크의 열 기반 스토리지를 사용하여 다른 데이터 웨어하우스보다 10배 빠른 성능을 제공합니다. 몇 분 만에 새로운 데이터 웨어하우스를 설정 및 배포하고, Redshift 데이터 웨어하우스에 있는 페타바이트 규모의 데이터와 Amazon S3에 구축된 데이터 레이크에 있는 엑사바이트 규모의 데이터에 대해 쿼리를 실행할 수 있습니다.
+
+- What is S3?
+"Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites." 
+
+- Extract Transform Load (ETL) and Extract Load Transform (ELT):
+"TL is normally a continuous, ongoing process with a well-defined workflow. ETL first extracts data from homogeneous or heterogeneous data sources. Then, data is cleansed, enriched, transformed, and stored either back in the lake or in a data warehouse.
+
+"ELT (Extract, Load, Transform) is a variant of ETL wherein the extracted data is first loaded into the target system. Transformations are performed after the data is loaded into the data warehouse. ELT typically works well when the target system is powerful enough to handle transformations. Analytical databases like Amazon Redshift and Google BigQ." 
+Source: Xplenty.com
+
+- Data Validation
+데이터 유효성 검사는 데이터가 존재하고 정확하며 의미있는 결과를 보장하는 프로세스입니다. 자동 유효성 검사를 통해 데이터의 품질을 보장하는 것은 모든 조직에서 데이터 파이프 라인을 구축하는 중요한 단계입니다.
