@@ -401,3 +401,6 @@ Airflow is a platform to programmatically author, schedule and monitor workflows
 Use airflow to author workflows as directed acyclic graphs (DAGs) of tasks. The airflow scheduler executes your tasks on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed.
 
 When workflows are defined as code, they become more maintainable, versionable, testable, and collaborative.
+
+- The Airflow UI is control interface for users and maintainers that allows them to execute and monitor DAGs
+- Airflow is based on Scheduler(Starts DAGs based on triggers or schedules and moves them towards completion), Workers(The workers run and record the outcome of individual pipeline tasks), UI/Web Server, Queue, Database
