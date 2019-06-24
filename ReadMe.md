@@ -385,3 +385,19 @@ Source: Xplenty.com
 - callable 
 
 호출 가능 객체는 다른 함수에 인수로 포함될 수있는 함수를 전달하는 것으로 생각할 수 있습니다. callable의 예는 map, reduce, filter입니다
+
+-airflow 
+에어플로우가 타 작업 흐름 관리 도구에 비해 나은 점은:
+
+동적인 작업 흐름 정의: 작업 흐름은 파이썬 코드로 정의되며 동적으로 작성될 수 있습니다.
+확장성: 새로운 연산자와 실행자를 쉽게 정의하고 라이브러리를 확장할 수 있게 합니다.
+간결함: Jinja 템플릿 엔진을 통해 깔끔하게 스크립트 매개 변수를 전달합니다.
+가용성: 모듈 아키텍쳐를 가지며 클러스터로 확장 가능한 메시지 큐를 통해 작업을 관리합니다.
+
+출처: https://jwon.org/airflow-concepts
+
+Airflow is a platform to programmatically author, schedule and monitor workflows.
+
+Use airflow to author workflows as directed acyclic graphs (DAGs) of tasks. The airflow scheduler executes your tasks on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed.
+
+When workflows are defined as code, they become more maintainable, versionable, testable, and collaborative.
