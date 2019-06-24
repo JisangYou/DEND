@@ -377,3 +377,11 @@ Source: Xplenty.com
 
 - Data Validation
 데이터 유효성 검사는 데이터가 존재하고 정확하며 의미있는 결과를 보장하는 프로세스입니다. 자동 유효성 검사를 통해 데이터의 품질을 보장하는 것은 모든 조직에서 데이터 파이프 라인을 구축하는 중요한 단계입니다.
+
+- DAGs
+
+ DAGs are a special subset of graphs in which the edges between nodes have a specific direction, and no cycles exist. When we say “no cycles exist” what we mean is the nodes cant create a path back to themselves.
+
+- callable 
+
+호출 가능 객체는 다른 함수에 인수로 포함될 수있는 함수를 전달하는 것으로 생각할 수 있습니다. callable의 예는 map, reduce, filter입니다
