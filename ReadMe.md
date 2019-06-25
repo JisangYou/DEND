@@ -413,10 +413,14 @@ When workflows are defined as code, they become more maintainable, versionable, 
 A collection of nodes and edges that describe the order of operations for a data pipeline
 
 - Task
-An instantiated step in a pipeline fully parameterized for execution
+An instantiated step in a pipeline fully parameterized for execution(수행할 작업)
 
 - Hook
 A reusable connection to an external database or system
 
 - Operator
-An abstract building block that can be configured to perform some work
+An abstract building block that can be configured to perform some work(자바에서 클래스와 인스턴스 관계로 비유하자면, 오퍼레이터와 태스크의 관계가 클래스와 인스턴스 관계와 비슷하다. Airflow에서 자주 수행되는 태스크들을 위해 다양한 오퍼레이터를 미리 제공)
+
+- Data Lineage
+
+The data lineage of a dataset describes the discrete steps involved in the creation, movement, and calculation of that dataset.
