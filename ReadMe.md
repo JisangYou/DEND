@@ -403,4 +403,20 @@ Use airflow to author workflows as directed acyclic graphs (DAGs) of tasks. The 
 When workflows are defined as code, they become more maintainable, versionable, testable, and collaborative.
 
 - The Airflow UI is control interface for users and maintainers that allows them to execute and monitor DAGs
+
 - Airflow is based on Scheduler(Starts DAGs based on triggers or schedules and moves them towards completion), Workers(The workers run and record the outcome of individual pipeline tasks), UI/Web Server, Queue, Database
+
+- 후킹
+후킹은 소프트웨어 공학 용어로, 운영 체제나 응용 소프트웨어 등의 각종 컴퓨터 프로그램에서 소프트웨어 구성 요소 간에 발생하는 함수 호출, 메시지, 이벤트 등을 중간에서 바꾸거나 가로채는 명령, 방법, 기술이나 행위를 말한다.
+
+- DAG 
+A collection of nodes and edges that describe the order of operations for a data pipeline
+
+- Task
+An instantiated step in a pipeline fully parameterized for execution
+
+- Hook
+A reusable connection to an external database or system
+
+- Operator
+An abstract building block that can be configured to perform some work
