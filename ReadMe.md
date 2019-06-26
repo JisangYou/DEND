@@ -424,3 +424,20 @@ An abstract building block that can be configured to perform some work(자바에
 - Data Lineage
 
 The data lineage of a dataset describes the discrete steps involved in the creation, movement, and calculation of that dataset.
+
+- why Schedules 
+
+파이프 라인 일정은 주어진 실행에서 처리해야하는 데이터의 양을 줄일 수 있습니다. 그것은 데이터 파이프 라인이 마지막으로 실행 된 이후의 기간 동안 만 데이터를 실행하는 범위를 작업에 도움이됩니다. 범위가 없는 순진한 분석에서 우리는 항상 모든 데이터를 분석합니다.
+일정을 사용하여 주어진 파이프 라인 실행 기간과 관련된 데이터 만 선택하면 우리 파이프 라인이 수행하는 분석의 품질과 정확성을 향상시킬 수 있습니다.
+일정에 따라 파이프 라인을 실행하면 파이프 라인 실행 시간이 단축됩니다.
+더 넓은 범위의 분석은 이미 완료된 작업을 활용할 수 있습니다. 에 대한. 예를 들어 지금까지의 모든 달에 대한 집계가 예정된 작업에 의해 이미 완료 되었다면 현재 달에 대한 집계 만 수행하고 기존 합계에 집계 만 추가하면됩니다.
+
+- Selecting the time period
+
+What is the size of data, on average, for a time period? 
+
+How frequently is data arriving, and how often does the analysis need to be performed? 
+
+What's the frequency on related datasets?
+
+- Schedule default is one day
