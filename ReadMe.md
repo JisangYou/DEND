@@ -450,7 +450,7 @@ What's the frequency on related datasets?
 
 - four common types of data partitioning : location, logical, size, time
 
-- Examples of Data Quality Requirements
+- Examples of Data Quality Requirements 
 Data must be a certain size
 Data must be accurate to some margin of error
 Data must arrive within a given timeframe from the start of execution
