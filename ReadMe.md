@@ -441,3 +441,11 @@ How frequently is data arriving, and how often does the analysis need to be perf
 What's the frequency on related datasets?
 
 - Schedule default is one day
+
+- data partitioning
+
+데이터베이스 분할 또는 파티셔닝은 데이터베이스를 여러 부분으로 분할하는 것이다. 데이터베이스 분할은 중요한 튜닝기법으로 데이터가 너무 커져서, 조회하는 시간이 길어질 때 또는 관리 용이성, 성능, 가용성 등의 향상을 이유로 행해지는 것이 일반적이다.
+
+- Schedule partitioning, Logical partitioning, Size Partitioning
+
+- four common types of data partitioning : location, logical, size, time
