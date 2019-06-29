@@ -456,3 +456,15 @@ Data must be accurate to some margin of error
 Data must arrive within a given timeframe from the start of execution
 Pipelines must run on a particular schedule
 Data must not contain any sensitive information
+
+- Task Boundaries
+DAG tasks should be designed such that they are:
+
+Atomic and have a single purpose
+Maximize parallelism
+Make failure states obvious
+Every task in your dag should perform only one job.
+
+- Benefits of Task Boundaries
+1. Re-visitable
+2. Tasks that do just one thing are often more easily parallelized
