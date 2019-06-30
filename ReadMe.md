@@ -468,3 +468,17 @@ Every task in your dag should perform only one job.
 - Benefits of Task Boundaries
 1. Re-visitable
 2. Tasks that do just one thing are often more easily parallelized
+
+- SubDAGs
+
+Commonly repeated series of tasks within DAGs can be captured as reusable SubDAGs. Benefits include:
+    - Decrease the amount of code we need to write and maintain to create a new DAG
+    - Easier to understand the high level goals of a DAG
+    - Bug fixes, speedups, and other enhancements can be made more quickly and distributed to all DAGs that use that SubDAG
+
+- Pipeline Monitoring
+SLAs, Emails and Alerts,Metrics
+
+
+- SLA (서비스 수준 협약 서비스)
+서비스 수준 협약서는 서비스를 제공함에 있어서 공급자와 사용자간에 서비스에 대하여 측정지표와 목표 등에 대한 협약서이다. 일반적으로 여기에 포함될 수 있는 서비스 측정치들은 CPU의 가용시간, CPU 응답시간, 헬프 데스크 응답시간, 서비스 완료시간 등이다.
