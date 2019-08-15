@@ -508,3 +508,14 @@ Once all tasks have been completed, the DAG is complete.
 - airflow hooks
 
 connections can be accessed in code via hooks
+
+
+- JOIN
+The whole purpose of JOIN statements is to allow us to pull data from more than one table at a time.
+
+- ERD
+entity relationship diagram (ERD) is a common way to view data in a database
+
+- PK
+
+you might notice that the PK is associated with the first column in every table. The PK here stands for primary key. A primary key exists in every table, and it is a column that has a unique value for every row.
