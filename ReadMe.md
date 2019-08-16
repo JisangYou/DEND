@@ -519,3 +519,20 @@ entity relationship diagram (ERD) is a common way to view data in a database
 - PK
 
 you might notice that the PK is associated with the first column in every table. The PK here stands for primary key. A primary key exists in every table, and it is a column that has a unique value for every row.
+
+- 명시적 조인
+'JOIN' 키워드를 사용하고 ON의 키워드를 조인에 대한 구문을 지정하는데 사용
+```
+SELECT *
+FROM EMPLOYEE INNER JOIN DEPARTMENT
+ON EMPLOYEE.DepartmentID = DEPARTMENT.DepartmentID;
+```
+
+- 암시적 조인
+암시적 조인 표현은 SELECT 구문의 FROM절에서 콤마(,)를 사용하여 단순히 조인을 위한 여러 테이블을 나여할하기만 하면된다.
+```
+SELECT *
+FROM EMPLOYEE, DEPARTMENT
+WHERE EMPLOYEE.DepartmentID = DEPARTMENT.DepartmentID;
+
+```
