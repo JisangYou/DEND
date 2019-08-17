@@ -539,3 +539,5 @@ WHERE EMPLOYEE.DepartmentID = DEPARTMENT.DepartmentID;
 
 - airflow schedules
 Pipelines are often driven by schedules which determine what data should be analyzed and when
+Schedules improve data quality by limiting our analysis to relevant data to a time period
+used appropriately pipeline schedules are also a form of data partitioning, which can substantially increase the speed of our pipeline runs
