@@ -536,3 +536,6 @@ FROM EMPLOYEE, DEPARTMENT
 WHERE EMPLOYEE.DepartmentID = DEPARTMENT.DepartmentID;
 
 ```
+
+- airflow schedules
+Pipelines are often driven by schedules which determine what data should be analyzed and when
