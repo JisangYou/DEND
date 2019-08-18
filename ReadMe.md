@@ -448,6 +448,18 @@ What's the frequency on related datasets?
 
 - Schedule partitioning, Logical partitioning, Size Partitioning
 
+Schedule partitioning
+
+Not only are schedules great for reducing the amount of data our pipelines have to process, but they also help us guarantee that we can meet timing guarantees that our data consumers may need.
+
+Logical partitioning
+
+Conceptually related data can be partitioned into discrete segments and processed separately. This process of separating data based on its conceptual relationship is called logical partitioning
+
+Size Partitioning
+
+Size partitioning separates data for processing based on desired or required storage limits. This essentially sets the amount of data included in a data pipeline run.
+
 - four common types of data partitioning : location, logical, size, time
 
 - Examples of Data Quality Requirements 
@@ -541,3 +553,19 @@ WHERE EMPLOYEE.DepartmentID = DEPARTMENT.DepartmentID;
 Pipelines are often driven by schedules which determine what data should be analyzed and when
 Schedules improve data quality by limiting our analysis to relevant data to a time period
 used appropriately pipeline schedules are also a form of data partitioning, which can substantially increase the speed of our pipeline runs
+
+- Airflow Plugins
+Airflow was built with the intention of allowing its users to extend and customize its functionality through plugins. The most common types of user-created plugins for Airflow are Operators and Hooks. These plugins make DAGs reusable and simpler to maintain.
+
+To create custom operator, follow the steps:
+
+Identify Operators that perform similar functions and can be consolidated
+Define a new Operator in the plugins folder
+Replace the original Operators with your new custom one, re-parameterize, and instantiate them.
+
+- Task Boundaries
+DAG tasks should be designed such that they are:
+
+Atomic and have a single purpose
+Maximize parallelism
+Make failure states obvious
