@@ -566,6 +566,9 @@ Replace the original Operators with your new custom one, re-parameterize, and in
 - Task Boundaries
 DAG tasks should be designed such that they are:
 
-Atomic and have a single purpose
+- Atomic and have a single purpose
 Maximize parallelism
 Make failure states obvious
+
+- AWS 리전과 클러스터
+최상의 성능을 내려면 데이터와 동일한 리전에서 클러스터를 시작해야 합니다. 예를 들어, 입력 데이터를 저장하는 Amazon S3 버킷이 미국 서부(오레곤) 리전에 있는 경우, 리전 간 데이터 전송 요금이 발생하지 않도록 하려면 미국 서부(오레곤) 리전에서 클러스터를 시작해야 합니다. Amazon S3 버킷을 사용하여 클러스터의 출력을 받는 경우, 미국 서부(오레곤) 리전에 이를 생성할 수도 있습니다.
