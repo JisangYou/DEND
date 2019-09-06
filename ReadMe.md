@@ -588,3 +588,9 @@ Make failure states obvious
 간결함: Jinja 템플릿 엔진을 통해 깔끔하게 스크립트 매개 변수를 전달합니다.
 가용성: 모듈 아키텍쳐를 가지며 클러스터로 확장 가능한 메시지 큐를 통해 작업을 관리합니다.
 출처 : https://jwon.org/airflow-concepts/
+
+- docstring 이란 
+
+docstring은 모듈, 함수, 클래스 또는 메소드 정의의 첫 번째 명령문으로 발생하는 문자열 리터럴
+이러한 docstring은 해당 객체 의 doc 특수 속성으로 변환됨
+Docstring convention - https://www.python.org/dev/peps/pep-0257/
