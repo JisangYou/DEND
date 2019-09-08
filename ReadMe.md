@@ -594,3 +594,29 @@ Make failure states obvious
 docstring은 모듈, 함수, 클래스 또는 메소드 정의의 첫 번째 명령문으로 발생하는 문자열 리터럴
 이러한 docstring은 해당 객체 의 doc 특수 속성으로 변환됨
 Docstring convention - https://www.python.org/dev/peps/pep-0257/
+
+-
+CPU (Central Processing Unit)
+The CPU is the "brain" of the computer. Every process on your computer is eventually handled by your CPU. This includes calculations and also instructions for the other components of the compute.
+
+Memory (RAM)
+When your program runs, data gets temporarily stored in memory before getting sent to the CPU. Memory is ephemeral storage - when your computer shuts down, the data in the memory is lost.
+
+Storage (SSD or Magnetic Disk)
+Storage is used for keeping data over long periods of time. When a program runs, the CPU will direct the memory to temporarily load data from long-term storage.
+
+Network (LAN or the Internet)
+Network is the gateway for anything that you need that isn't stored on your computer. The network could connect to other computers in the same room (a Local Area Network) or to a computer on the other side of the world, connected over the internet.
+
+- The CPU is the brains of a computer. The CPU has a few different functions including directing other components of a computer as well as running mathematical calculations. The CPU can also store small amounts of data inside itself in what are called registers. These registers hold data that the CPU is working with at the moment.
+
+- usually organize the data in memory, so it's lined up and ready for immediate processing by the CPU.
+
+- Hadoop
+HDFS - Data Storage
+MAP REDUCE - Data Processing
+YARN - Resource Manager
+HADDOP COMMON - Utilities
+Pig - sql for map reduce
+hive - sql for map reduce
+spark(newer distributed data technologies)
