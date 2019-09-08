@@ -620,3 +620,16 @@ HADDOP COMMON - Utilities
 Pig - sql for map reduce
 hive - sql for map reduce
 spark(newer distributed data technologies)
+
+
+- Map Reduce
+
+Hdfs -> map -> shuffle -> reduce
+
+- 
+MapReduce is a programming technique for manipulating large data sets. "Hadoop MapReduce" is a specific implementation of this programming technique.
+The technique works by first dividing up a large dataset and distributing the data across a cluster.
+In the map step, each data is analyzed and converted into a (key, value) pair. 
+Then these key-value pairs are shuffled across the cluster so that all keys are on the same machine. 
+In the reduce step, the values with the same keys are combined together.
+While Spark doesn't implement MapReduce, you can write Spark programs that behave in a similar way to the map-reduce paradigm. 
